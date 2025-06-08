@@ -2,7 +2,7 @@
 title: A Prime Number Finder Function with Python
 date: 2025-06-06
 layout: post
-image: "/_posts/primes.jpg"
+image: "/img/posts/primes.jpg"
 tags: [Python, Primes]
 ---
 # A Prime Number Finder Function with Python
