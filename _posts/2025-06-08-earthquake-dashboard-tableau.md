@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Dashboard for Tracking Earthquake Data with Tableau
-image: "/posts/tableau-map-image.png"
+image: "/img/posts/dashboard0.jpg"
 tags: [Tableau, Data Viz]
 ---
 This is a Tableau Dashboard that tracks global Earthquake activity over a 30-day period
