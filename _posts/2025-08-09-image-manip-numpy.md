@@ -3,7 +3,7 @@ title: Image Manipution with NumPy
 date: 2025-08-09
 layout: post
 image: "/posts/img_squirrel_stack.jpg"
-tags: [NumPy, Image-Manipulation]
+tags: [NumPy, Image Manipulation]
 ---
 # Image Manipulation with NumPy
 In this exercice we are going to use NumPy to create the above picture collage from this image:
