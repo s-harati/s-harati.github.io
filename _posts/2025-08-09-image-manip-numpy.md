@@ -7,8 +7,11 @@ tags: [NumPy, Image Manipulation]
 ---
 # Image Manipulation with NumPy
 In this exercice we are going to use NumPy to create this picture collage...
+
 ![output image](/img/posts/img_squirrel_stack.jpg)
+
 ...from this image:
+
 ![input image](/img/posts/img_squirrel.jpg)
 ## Basic Idea: Images as Numeric Arrays
 Each pixel in the image has unique horizontal and vertical coordinates. Besides, each pixel has three color channels (Red, Green, Blue). These characteristics mean that we can treat our image as a numeric array. We will see how NumPy's array processing capabilities help us perform various tasks on our image.
@@ -38,6 +41,7 @@ plt.imshow(squirrel)
 plt.show()
 ```
 ![load image](/img/posts/img_1_load.png)
+
 Ok! Python transposed and flipped our image! That is a good reminder that Python locates pixels by their row and column from the top-left of the image, which is different from our typical `(x,y)` coordinates with the origin at the bottom-left.
 ### Transposing the Image
 To fix the problem, we first transpose the image and store it under the same name.
@@ -48,6 +52,7 @@ Since our data is three-dimensional, we need to specify which dimensions we wish
 Let us see the result.
 ```python
 plt.imshow(squirrel)
+plt.grid()
 plt.show()
 ```
 ![transpose](/img/posts/img_2_1_transpose.png)
@@ -63,7 +68,7 @@ plt.imshow(squirrel)
 plt.grid()
 plt.show()
 ```
-I added an extra command (`plt.grid()`) to display a grid over the image. This will help us in the next step, when we want to crop the image.
+I added the command `plt.grid()` to display a grid over the image. This will help us in the next step, when we want to crop the image.
 ![flip](/img/posts/img_2_2_flip.png)
 ### Cropping the Image
 Finally our image looks all right! Now, we want to crop two sections from it: a `3000x2000` rectangular crop containing mainly the tree, and a `1000x1000` square block containing the squirrel. With the help of the grid lines that we just drew, we can specify our crop lines. Also note that we can crop our image by specifying a selection in our data array.
@@ -74,6 +79,7 @@ plt.imshow(crop_slim)
 plt.show()
 ```
 ![crop slim](/img/posts/img_3_1_cropped_slip.png)
+
 We selected columns 500 to 2500.
 Next, we make the square crop, name it `crop_bloc`, and display it.
 ```python
@@ -82,6 +88,7 @@ plt.imshow(crop_bloc)
 plt.show()
 ```
 ![crop bloc](/img/posts/img_3_2_cropped_bloc.png)
+
 We selected rows 750 to 1750 and columns 1000 to 2000. I think it looks right!
 ### Separating Color Channels
 Alright! Now we want to separate the Red, Green, and Blue bands of our little squirrel image (`crop_bloc`). This task is a bit more challenging and at the same time exciting!
@@ -104,6 +111,7 @@ plt.imshow(red)
 plt.show()
 ```
 ![red band](/img/posts/img_4_1_red.png)
+
 I think at this moment it is fair to say "Wow!" or express excitement in some other way. 
 Let us do the same for green:
 ```python
@@ -113,6 +121,7 @@ plt.imshow(green)
 plt.show()
 ```
 ![green band](/img/posts/img_4_2_green.png)
+
 And blue:
 ```python
 blue = np.zeros(crop_bloc.shape, dtype = "uint8")
@@ -121,6 +130,7 @@ plt.imshow(blue)
 plt.show()
 ```
 ![blue band](/img/posts/img_4_3_blue.png)
+
 Very well! Now we have three image arrays named `red`, `green`, and `blue`!
 ### Stacking Images
 Next, we are going to create two stacked images. Again, NumPy comes to our help, as our images are indeed arrays. An obvious but critically important point is to make sure that the sizes of the arrays allow them to be stacked together.
@@ -131,6 +141,7 @@ plt.imshow(squirrel_rainbow)
 plt.show()
 ```
 ![vertical stack](/img/posts/img_5_1_vstack.png)
+
 Very good! Let us just check the size of this new image
 ```python
 squirrel_rainbow.shape
